@@ -59,3 +59,15 @@ typings/
 
 # next.js build output
 .next
+
+# NPM Files
+package-lock.json
+
+# Folders
+dist
+
+# VSCode (Settings)
+.vscode
+
+# Bot (Settings)
+settings.json
