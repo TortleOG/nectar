@@ -1,7 +1,8 @@
 import { KlasaGuild, KlasaUser, KlasaMessage, KlasaTextChannel } from 'klasa';
 import { GuildChannel, MessageEmbed } from 'discord.js';
 import { NectarClient } from '../Client';
-import { NectarConfiguration, RowModLog } from '../../types/nectar_types'
+
+import { NectarConfiguration, RowModLog } from '../../types/nectar_types';
 
 export class ModLog {
   private guild: KlasaGuild;
@@ -64,7 +65,7 @@ export class ModLog {
   }
 
   private async _getCase(): Promise<number> {
-    const row = await this.provider.get('modlogs', this.guild.id) as RowModLog
+    const row = await this.provider.get('modlogs', this.guild.id) as RowModLog;
     if (!row) {
       this._case = 1;
       return this.provider.create('modlogs', this.guild.id, { modlogs: [this._pack] }).then(() => 1);
@@ -82,7 +83,7 @@ export class ModLog {
       moderator: this._moderator,
       reason: this._reason,
       case: this._case
-    }
+    };
   }
 
   private get _embed() {
@@ -100,7 +101,7 @@ export class ModLog {
   }
 
   private static _title(type: string): string {
-    switch(type) {
+    switch (type) {
       case 'ban': return 'Banned';
       case 'unban': return 'Unbanned';
       case 'mute': return 'Muted';
@@ -113,13 +114,13 @@ export class ModLog {
 
   private static _color(type: string): number {
     switch (type) {
-			case 'ban': return 0xcc0000;
-			case 'unban': return 0x2d862d;
-			case 'kick': return 0xe65c00;
-			case 'mute':
-			case 'unmute': return 0x993366;
-			case 'warn': return 0xf2f20d;
-			default: return 0xffffff;
+      case 'ban': return 0xcc0000;
+      case 'unban': return 0x2d862d;
+      case 'kick': return 0xe65c00;
+      case 'mute':
+      case 'unmute': return 0x993366;
+      case 'warn': return 0xf2f20d;
+      default: return 0xffffff;
     }
   }
 
