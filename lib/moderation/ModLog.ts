@@ -1,5 +1,5 @@
-import { KlasaGuild, KlasaUser, KlasaMessage, KlasaTextChannel } from 'klasa';
-import { GuildChannel, MessageEmbed } from 'discord.js';
+import { KlasaGuild, KlasaMessage, KlasaTextChannel } from 'klasa';
+import { GuildChannel, MessageEmbed, User } from 'discord.js';
 import { NectarClient } from '../Client';
 
 import { NectarConfiguration, RowModLog } from '../../types/nectar_types';
@@ -36,7 +36,7 @@ export class ModLog {
     return this;
   }
 
-  public user(user: KlasaUser): this {
+  public user(user: User): this {
     this._user = {
       id: user.id,
       tag: user.tag
@@ -44,7 +44,7 @@ export class ModLog {
     return this;
   }
 
-  public moderator(user: KlasaUser): this {
+  public moderator(user: User): this {
     this._moderator = {
       id: user.id,
       tag: user.tag
