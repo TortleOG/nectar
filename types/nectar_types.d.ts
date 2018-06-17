@@ -10,5 +10,18 @@ export type NectarModSchema = {
 }
 
 export type RowModLog = {
-  modlogs: object[];
+  modlogs: ModLogData[];
+}
+
+export type ModLogData = {
+  type: string;
+  user: {
+    tag: string;
+    id: Snowflake;
+  };
+  moderator: {
+    tag: string;
+    id: Snowflake;
+  };
+  reason: string;
 }
