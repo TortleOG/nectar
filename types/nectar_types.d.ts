@@ -7,6 +7,7 @@ export class NectarConfiguration extends Configuration {
 
 export type NectarModSchema = {
   modlog: Snowflake;
+  muterole: Snowflake;
 }
 
 export type RowModLog = {
