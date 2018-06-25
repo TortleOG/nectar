@@ -1,8 +1,7 @@
 import { Command, CommandStore, CommandOptions, KlasaMessage, KlasaUser } from 'klasa';
 
-import { NectarClient } from '../../../lib/Client';
+import { NectarClient, ModLog } from '../../index';
 import { NectarConfiguration } from '../../../types/nectar_types';
-import { ModLog } from '../../../lib/moderation/ModLog';
 
 export default class extends Command {
   public constructor(client: NectarClient, store: CommandStore, file: string[], core: boolean, options?: CommandOptions) {

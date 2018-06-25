@@ -1,8 +1,7 @@
 import { Command, CommandStore, CommandOptions, KlasaMessage, KlasaUser } from 'klasa';
 import { GuildMember } from 'discord.js';
 
-import { NectarClient } from '../../../lib/Client';
-import { ModLog } from '../../../lib/moderation/ModLog';
+import { NectarClient, ModLog } from '../../index';
 import { NectarConfiguration } from '../../../types/nectar_types';
 
 export default class extends Command {

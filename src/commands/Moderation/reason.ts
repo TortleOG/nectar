@@ -1,9 +1,8 @@
 import { Command, CommandStore, CommandOptions, KlasaMessage, KlasaTextChannel } from 'klasa';
 import { Message, MessageEmbed } from 'discord.js';
 
-import { NectarClient } from '../../../lib/Client';
-import { ModLog } from '../../../lib/moderation/ModLog';
-import { RowModLog, ModLogData, NectarConfiguration } from '../../../types/nectar_types';
+import { NectarClient, ModLog } from '../../index';
+import { NectarConfiguration, RowModLog, ModLogData } from '../../../types/nectar_types';
 
 export default class extends Command {
   public constructor(client: NectarClient, store: CommandStore, file: string[], core: boolean, options?: CommandOptions) {

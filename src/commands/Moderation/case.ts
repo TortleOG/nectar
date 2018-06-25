@@ -1,6 +1,6 @@
 import { Command, CommandStore, CommandOptions, KlasaMessage } from 'klasa';
 
-import { NectarClient } from '../../../lib/Client';
+import { NectarClient } from '../../index';
 import { RowModLog, ModLogData } from '../../../types/nectar_types';
 
 export default class extends Command {

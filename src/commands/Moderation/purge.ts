@@ -1,7 +1,7 @@
 import { Command, CommandStore, CommandOptions, KlasaMessage, KlasaUser } from 'klasa';
 import { Message } from 'discord.js';
 
-import { NectarClient } from '../../../lib/Client';
+import { NectarClient } from '../../index';
 
 export default class extends Command {
   public constructor(client: NectarClient, store: CommandStore, file: string[], core: boolean, options?: CommandOptions) {
@@ -20,13 +20,13 @@ export default class extends Command {
     if (!amount && !user) throw `❌ | ${msg.author}, you must specify a user and an amount, or just an amount, of messages to purge.`;
 
     let messages = await msg.channel.messages.fetch({ limit: amount });
-    let filterMes: Message[];
+    let filterMes: Message[] = null;
     if (user) {
       filterMes = messages.filter(mes => mes.author.id === user.id).array().slice(0, amount);
     }
 
     try {
-      await msg.channel.bulkDelete(filterMes);
+      await msg.channel.bulkDelete(filterMes || messages);
       return msg.send(`🗑 | Deleted ${user ? `**${amount} messages** from user **${user.tag}**` : `**${amount} messages**`}.`);
     } catch (err) {
       this.client.console.error(err);
