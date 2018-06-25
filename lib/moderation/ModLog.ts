@@ -88,8 +88,8 @@ export class ModLog {
 
   private get _embed() {
     const embed: MessageEmbed = new MessageEmbed()
-      .setColor(ModLog._color(this._type))
-      .setTitle(ModLog._title(this._type))
+      .setColor(ModLog.color(this._type))
+      .setTitle(ModLog.title(this._type))
       .setAuthor(this._moderator.tag, this.client.users.get(this._moderator.id).displayAvatarURL())
       .setDescription([
         `**Member**: ${this._user.tag} | ${this._user.id}`,
@@ -100,7 +100,7 @@ export class ModLog {
     return embed;
   }
 
-  private static _title(type: string): string {
+  public static title(type: string): string {
     switch (type) {
       case 'ban': return 'Banned';
       case 'unban': return 'Unbanned';
@@ -112,7 +112,7 @@ export class ModLog {
     }
   }
 
-  private static _color(type: string): number {
+  public static color(type: string): number {
     switch (type) {
       case 'ban': return 0xcc0000;
       case 'unban': return 0x2d862d;
